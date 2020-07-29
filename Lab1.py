@@ -14,7 +14,7 @@ from tezt import Render, GREEN, BLUE, RED, WHITE
 
 bitmap = Render()
 print(bitmap.glInit())
-bitmap.glCreateWindow(1000,500)
+bitmap.glCreateWindow()
 
 # Polygon 1
 polygon = [(165, 380), (185, 360), (180, 330), (207, 345), (233, 330), (230, 360), (250, 380), (220, 385), (205, 410), (193, 383)]
@@ -42,13 +42,11 @@ bitmap.glColor(255,0,0)
 bitmap.inundation(168, 379, WHITE, RED)
 bitmap.inundation(182, 332, WHITE, RED)
 
-
 # Square
-bitmap.glColor(0,255,0)
-#bitmap.inundation(289, 286, WHITE, RED)
+#bitmap.inundation(330, 200, WHITE, RED)
 
 #Triangle
-bitmap.inundation(182, 332, WHITE, BLUE)
+#bitmap.inundation(379, 248, WHITE, BLUE)
 
 #Tea server
 
