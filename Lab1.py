@@ -7,24 +7,52 @@ Mario Perdomo
 18029
 
 Lab1.py
-Proposito: Crear una linea dentro del framebuffer con las posibles optimizaciones
+Proposito: Mostrar los poligonos rellenados en el renderer
 """
-from tezt import Render
+from tezt import Render, GREEN, BLUE, RED, WHITE
+
+
 bitmap = Render()
 print(bitmap.glInit())
-bitmap.glCreateWindow()
+bitmap.glCreateWindow(1000,500)
+
+# Polygon 1
+polygon = [(165, 380), (185, 360), (180, 330), (207, 345), (233, 330), (230, 360), (250, 380), (220, 385), (205, 410), (193, 383)]
+bitmap.drawPolygon(polygon)
+
+# Polygon 2
+polygon = [(321, 335), (288, 286), (339, 251), (374, 302)]
+bitmap.drawPolygon(polygon)
+# Polygon 3
+polygon = [(377, 249), (411, 197), (436, 249)]
+bitmap.drawPolygon(polygon)
+
+#bitmap.glColor(255,0,0)
+#bitmap.inundation(168, 379, WHITE, RED)
+# Polygon 4
+polygon = [(413, 177), (448, 159), (502, 88), (553, 53), (535, 36), (676, 37), (660, 52), (750, 145), (761, 179), (672, 192), (659, 214), (615, 214), (632, 230), (580, 230), (597, 215), (552, 214), (517, 144), (466, 180)]
+bitmap.drawPolygon(polygon)
+
+# Polygon 5
+polygon = [(682, 175), (708, 120), (735, 148), (739, 170)]
+bitmap.drawPolygon(polygon)
+
+#Star
+bitmap.glColor(255,0,0)
+bitmap.inundation(168, 379, WHITE, RED)
+bitmap.inundation(182, 332, WHITE, RED)
 
 
-bitmap.Line(165,380,185,360)
-bitmap.Line(185,360,180,330)
-bitmap.Line(180,330,207,345)
-bitmap.Line(207,345,233,330)
-bitmap.Line(233,330,230,360)
-bitmap.Line(230,360,250,380)
-bitmap.Line(250,380,220,385)
-bitmap.Line(220,385,205,410)
-bitmap.Line(205,410,193,383)
-bitmap.Line(193,383,165,380)
+# Square
+bitmap.glColor(0,255,0)
+#bitmap.inundation(289, 286, WHITE, RED)
+
+#Triangle
+bitmap.inundation(182, 332, WHITE, BLUE)
+
+#Tea server
+
+#Hole
 
 
 
