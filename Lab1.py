@@ -9,7 +9,7 @@ Mario Perdomo
 Lab1.py
 Proposito: Mostrar los poligonos rellenados en el renderer
 """
-from tezt import Render, GREEN, BLUE, RED, WHITE
+from tezt import Render, GREEN, BLUE, RED, WHITE, color
 
 
 bitmap = Render()
@@ -39,19 +39,29 @@ bitmap.drawPolygon(polygon)
 
 #Star
 bitmap.glColor(255,0,0)
-bitmap.inundation(168, 379, WHITE, RED)
-bitmap.inundation(182, 332, WHITE, RED)
+bitmap.inundation_left(200, 379, WHITE, RED)
+bitmap.inundation_right(201, 379, WHITE, RED)
 
 # Square
-#bitmap.inundation(330, 200, WHITE, RED)
+bitmap.glColor(0,0,255)
+bitmap.inundation_left(328, 301, WHITE, BLUE)
+bitmap.inundation_right(329, 301, WHITE, BLUE)
+
 
 #Triangle
-#bitmap.inundation(379, 248, WHITE, BLUE)
+bitmap.glColor(0,255,0)
+
+bitmap.inundation_right(379, 248, WHITE, GREEN)
 
 #Tea server
+bitmap.glColor(255,255,255)
+bitmap.inundation_left(605,75,WHITE,WHITE)
+bitmap.inundation_right(606,75,WHITE,WHITE)
+
 
 #Hole
-
+bitmap.glColor(0,255,255)
+bitmap.inundation_right(700,135, WHITE, color(0,255,255))
 
 
 

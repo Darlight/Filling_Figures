@@ -12,7 +12,7 @@ Proposito: Clase objeto que carga archivos .obj
 class Obj(object):
     def __init__(self,filename):
         with open(filename) as f:
-            self. lines = f.read().splitlines()
+            self.lines = f.read().splitlines()
             self.vertices = []
             self.faces = []
             self.read()

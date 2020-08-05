@@ -125,7 +125,7 @@ class Render(object):
         threshold = dx
 
         y = y1
-        for x in range(x1, x2):
+        for x in range(x1, x2 + 1):
             if steep:
                 self.point(y, x)
             else:
@@ -186,14 +186,23 @@ class Render(object):
             v1 = points[(i+1)%iterations]
             self.Line(v0[0], v0[1], v1[0], v1[1]) 
 
-    def inundation(self, x, y, color1, color2):
-        self.current_color = self.framebuffer[y][x]
-        if (self.current_color != color1 and self.current_color != color2):
+    def inundation_left(self, x, y, color1, color2):
+        current_color = self.framebuffer[y][x]
+        if (current_color != color1 and current_color != color2):
             self.point(x,y)
-            self.inundation(x+1,y,color1,color2)
-            self.inundation(x,y+1,color1,color2)
+            #self.inundation(x+1,y,color1,color2)
+            self.inundation_left(x,y+1,color1,color2)
+            self.inundation_left(x-1,y,color1,color2)
+            self.inundation_left(x,y-1,color1,color2)
+    
+    def inundation_right(self, x, y, color1, color2):
+        current_color = self.framebuffer[y][x]
+        if (current_color != color1 and current_color != color2):
+            self.point(x,y)
+            self.inundation_right(x+1,y,color1,color2)
+            self.inundation_right(x,y+1,color1,color2)
             #self.inundation(x-1,y,color1,color2)
-            self.inundation(x,y-1,color1,color2)
+            self.inundation_right(x,y-1,color1,color2)
 
     def load(self, filename, translate, scale):
         model = Obj(filename)
@@ -246,9 +255,16 @@ class Render(object):
             for y in range(self.windowWidth):
                 f.write(self.framebuffer[x][y])
         f.close()
-
-
-
+"""
+    def inundation(self, x, y, color1, color2):
+        current_color = self.framebuffer[y][x]
+        if (current_color != color1 and current_color != color2):
+            self.point(x,y)
+            #self.inundation(x+1,y,color1,color2)
+            self.inundation(x,y+1,color1,color2)
+            self.inundation(x-1,y,color1,color2)
+            self.inundation(x,y-1,color1,color2)
+"""
 
 
 
